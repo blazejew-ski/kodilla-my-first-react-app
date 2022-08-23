@@ -1,14 +1,12 @@
 import Hero from '../Hero/Hero.js';
-import SearchForm from '../SearchForm/SearchForm.js';
-import List from '../List/List.js';
+import Lists from '../Lists/Lists.js';
 import Container from '../Container/Container.js';
 
 const Home = () => {
   return (
     <Container>
       <Hero />
-      <SearchForm />
-      <List />
+      <Lists />
     </Container>
   );
 };

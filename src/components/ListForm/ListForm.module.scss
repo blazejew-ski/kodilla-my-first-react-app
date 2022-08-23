@@ -1,0 +1,24 @@
+@import '../../styles/settings.scss';
+
+.listForm {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  .columnInputs {
+    @media screen and (max-width: $w860) {
+      width: 100%;
+      text-align: center;
+    }
+    .inputTitle {
+      margin: 0px 10px;
+      @media screen and (max-width: $w860) {
+        display: block;
+      }
+    }
+  }
+
+}
