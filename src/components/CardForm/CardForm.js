@@ -18,7 +18,6 @@ const CardForm = props => {
 
     const dispatch = useDispatch();
 
-
 	return (
         <form className={styles.cardForm} onSubmit={handleSubmit}>
             <TextInput value={title} onChange={e => setTitle(e.target.value)} />
