@@ -7,23 +7,23 @@ import cardsReducer from './cardsReducer';
 import searchStringReducer from './searchStringReducer';
 
 // LISTS
-export const getAllLists = (state) => {return state.lists;}
-export const getListById = ({ lists }, listId) => lists.find(list => list.id === listId);
-export const addList = payload => ({ type: 'ADD_LIST', payload });
+// export const getAllLists = (state) => {return state.lists;}
+// export const getListById = ({ lists }, listId) => lists.find(list => list.id === listId);
+// export const addList = payload => ({ type: 'ADD_LIST', payload });
 
 // COLUMNS
-export const getAllColumns = (state) => {return state.columns;}
-export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
-export const getColumnsByList = ({ columns }, listId) => columns.filter(column => column.listId === listId);
+// export const getAllColumns = (state) => {return state.columns;}
+// export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
+// export const getColumnsByList = ({ columns }, listId) => columns.filter(column => column.listId === listId);
 
 // CARDS
-export const getFilteredCards = ({ cards, searchString }, columnId) => cards.filter(card => card.columnId === columnId && card.title.toLowerCase().includes(searchString.searchString.toString().toLowerCase()));
-export const addCard = payload => ({ type: 'ADD_CARD', payload });
-export const getFavoriteCards = ({ cards }, isFavorite) => cards.filter(card => card.isFavorite === isFavorite);
-export const toggleIsFavorite = payload => ({ type: 'TOGGLE_CARD_FAVORITE', payload });
+// export const getFilteredCards = ({ cards, searchString }, columnId) => cards.filter(card => card.columnId === columnId && card.title.toLowerCase().includes(searchString.searchString.toString().toLowerCase()));
+// export const addCard = payload => ({ type: 'ADD_CARD', payload });
+// export const getFavoriteCards = ({ cards }, isFavorite) => cards.filter(card => card.isFavorite === isFavorite);
+// export const toggleIsFavorite = payload => ({ type: 'TOGGLE_CARD_FAVORITE', payload });
 
 //SEARCH
-export const updateSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });
+// export const updateSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });
 
 // const reducer = (state, action) => {
 //   switch(action.type) {
