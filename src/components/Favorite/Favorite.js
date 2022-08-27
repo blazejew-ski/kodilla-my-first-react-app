@@ -5,7 +5,6 @@ import Container from '../Container/Container.js';
 import { useSelector } from 'react-redux';
 import { getFavoriteCards } from '../../redux/cardsReducer';
 
-
 const Favorite = () => {
 
   const cards = useSelector(state => getFavoriteCards(state, true));

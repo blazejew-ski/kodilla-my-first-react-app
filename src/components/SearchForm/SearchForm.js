@@ -8,6 +8,7 @@ import { updateSearchString } from '../../redux/searchStringReducer';
 const SearchForm = () => {
     const dispatch = useDispatch();
     const [searchString, setSearch] = useState('');
+
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(updateSearchString({ searchString }));

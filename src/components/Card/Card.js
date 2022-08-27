@@ -1,37 +1,38 @@
 import styles from './Card.module.scss';
 import clsx from 'clsx';
-import { toggleIsFavorite } from '../../redux/cardsReducer';
+import { toggleIsFavorite, removeCard } from '../../redux/cardsReducer';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
-const Card = props => {
-    const [isFavorite, setIsFavorite] = useState(props.isFavorite);
-    const title = props.title;
-    const id = props.id;
-    console.log(isFavorite, title, id);
-    const dispatch = useDispatch();
+const Card = ({title, id, isFavorite}) => {
+  const dispatch = useDispatch();
+  const [isFavoriteCard, setIsFavorite] = useState(isFavorite);
+  console.log(isFavoriteCard, title, id);
 
-    const prepareColorClassNameActive = isFavorite => {
-        if (isFavorite){
-          return styles.cardActive;
-        }
-        else {return ''};
+  const handleToggle = e => {
+      e.preventDefault();
+      if (!isFavoriteCard) {
+          setIsFavorite(true);
+          dispatch(toggleIsFavorite(id));
+      } else {
+          setIsFavorite(false);
+          dispatch(toggleIsFavorite(id));
       }
+    };
+  const handleRemove = e => {
+    e.preventDefault();
+        dispatch(removeCard(id));
+    }
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        if (!isFavorite) {
-            setIsFavorite(true);
-            dispatch(toggleIsFavorite(id));
-        } else {
-            setIsFavorite(false);
-            dispatch(toggleIsFavorite(id));
-        }
-      };
-
-    return (
-        <li className={styles.card}>{props.title} <span onClick={handleSubmit} className={'fa fa-star-o ' + clsx(prepareColorClassNameActive(isFavorite))}></span></li>
-    );
+  return (
+      <li className={styles.card}>
+        {title}
+        <div className={styles.cardIcons}>
+          <span onClick={handleToggle} className={`fa fa-star-o ${clsx({[styles.cardActive]: isFavoriteCard})}`}></span>
+          <span onClick={handleRemove} className={'fa fa-trash-o'}></span>
+        </div>
+      </li>
+  );
 };
 
 export default Card;
